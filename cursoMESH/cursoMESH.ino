@@ -3,7 +3,7 @@
 #define   MESH_PREFIX     "UTEQ-INTEL"
 #define   MESH_PASSWORD   "UTEQ-INTEL"
 #define   MESH_PORT       5555
-#define   MASTER          2440612283
+#define   MASTER          693462094
 #define   YOUR_NAME       "Eduardo Donjuan"     // <-- Change to your name!
 
 Scheduler userScheduler;
@@ -28,14 +28,15 @@ void receivedCallback( uint32_t from, String &msg ) {
 }
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   delay(10);
   pinMode(LED_BUILTIN, OUTPUT);
 
   //mesh.setDebugMsgTypes( ERROR | STARTUP );
   mesh.init( MESH_PREFIX, MESH_PASSWORD, &userScheduler, MESH_PORT );
   mesh.onReceive(&receivedCallback);
-  
+
+  Serial.println();
   Serial.print("MI ID ES: ");
   Serial.println(mesh.getNodeId());
   
