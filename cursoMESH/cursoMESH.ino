@@ -31,6 +31,7 @@ void setup() {
   Serial.begin(9600);
   delay(10);
   pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, !LOW);
 
   //mesh.setDebugMsgTypes( ERROR | STARTUP );
   mesh.init( MESH_PREFIX, MESH_PASSWORD, &userScheduler, MESH_PORT );
